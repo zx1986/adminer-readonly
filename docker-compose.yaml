@@ -14,6 +14,11 @@ services:
     container_name: adminer
     environment:
       ADMINER_DEFAULT_SERVER: mariadb
+      ADMINER_PLUGINS: login-predefined
+      ADMINER_PREDEFINED_USER: adminer
+      ADMINER_PREDEFINED_PASSWORD: adminer
     restart: always
     ports:
       - 8080:8080
+    volumes:
+      - ./plugins/login-predefined.php:/var/www/html/plugins/login-predefined.php
