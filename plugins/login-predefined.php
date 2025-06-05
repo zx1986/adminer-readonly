@@ -8,6 +8,8 @@
 class PredefinedLogin {
 
 	function credentials() {
+        # `SERVER` works fine in adminer 4.x
+        # which define in https://github.com/vrana/adminer/blob/v4.17.1/adminer/include/bootstrap.inc.php#L97
 		return array(SERVER, $_ENV["ADMINER_PREDEFINED_USER"], $_ENV["ADMINER_PREDEFINED_PASSWORD"]);
 	}
 

@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   mariadb:
-    image: mariadb:10.6.17-focal
+    image: mariadb:10.6.19-focal
     container_name: mariadb
     restart: always
     environment:
@@ -10,11 +10,11 @@ services:
       MYSQL_PASSWORD: adminer
       MYSQL_DATABASE: noinch
   adminer:
-    image: adminer:latest
+    image: adminer:4
     container_name: adminer
     environment:
       ADMINER_DEFAULT_SERVER: mariadb
-      ADMINER_PLUGINS: login-predefined
+      ADMINER_PLUGINS: 'login-predefined'
       ADMINER_PREDEFINED_USER: adminer
       ADMINER_PREDEFINED_PASSWORD: adminer
     restart: always
