@@ -13,7 +13,7 @@ services:
     container_name: adminer
     environment:
       ADMINER_DEFAULT_SERVER: mariadb
-      ADMINER_PLUGINS: 'login-predefined'
+      ADMINER_PLUGINS: 'login-predefined sql-block'
       ADMINER_PREDEFINED_USER: adminer
       ADMINER_PREDEFINED_PASSWORD: adminer
     restart: always
@@ -21,3 +21,4 @@ services:
       - 8080:8080
     volumes:
       - ./plugins/login-predefined.php:/var/www/html/plugins/login-predefined.php
+      - ./plugins/sql-block.php:/var/www/html/plugins/sql-block.php
