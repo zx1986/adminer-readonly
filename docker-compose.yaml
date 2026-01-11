@@ -9,7 +9,7 @@ services:
       MYSQL_PASSWORD: adminer
       MYSQL_DATABASE: noinch
   adminer:
-    image: adminer:5.3.0
+    image: adminer:5.4.1
     container_name: adminer
     environment:
       ADMINER_DEFAULT_SERVER: mariadb
