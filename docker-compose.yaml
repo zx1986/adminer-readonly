@@ -9,7 +9,7 @@ services:
       MYSQL_PASSWORD: adminer
       MYSQL_DATABASE: noinch
   adminer:
-    image: adminer:5.4.1
+    image: adminer:5.4.1-fastcgi
     container_name: adminer
     environment:
       ADMINER_DEFAULT_SERVER: mariadb
@@ -17,8 +17,17 @@ services:
       ADMINER_PREDEFINED_USER: adminer
       ADMINER_PREDEFINED_PASSWORD: adminer
     restart: always
-    ports:
-      - 8080:8080
     volumes:
       - ./plugins/login-predefined.php:/var/www/html/plugins/login-predefined.php
       - ./plugins/sql-block.php:/var/www/html/plugins/sql-block.php
+  
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: nginx
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - adminer
