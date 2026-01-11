@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+.env
+volumes/
+
+# Test artifacts
+load-test-results.json
+# load-test-summary.json # Note: Currently tracked as per recent commit
+
+# Adminer/PHP/SQL logs
+*.sql
+*.log
+
+# IDEs
+.vscode/
+.idea/
